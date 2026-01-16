@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 """Adding two integers."""
-__import__ = 'def add(a, b):'
+
 def add(a, b):
     """Return the addition of a and b."""
     return a + b
+
+if __name__ == "__main__":
+    a = 1
+    b = 2
+    print("{:d} + {:d} = {:d}".format(a, b, add(a, b)))
