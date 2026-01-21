@@ -1,11 +1,3 @@
 #!/usr/bin/python3
-"""
-Multiply all values in a dictionary by 2
-"""
-
-
-def multiply_by_2(a_dictionary):
-    new_dict = {}
-    for key in a_dictionary:
-        new_dict[key] = a_dictionary[key] * 2
-    return new_dict
+def multiply_list_map(my_list=[], number=0):
+    return list(map(lambda x: x * number, my_list))
