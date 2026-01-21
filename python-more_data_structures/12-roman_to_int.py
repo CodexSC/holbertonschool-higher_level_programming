@@ -5,5 +5,5 @@ Write a function that converts a Roman numeral to an integer.
 
 
 def roman_to_int(roman_string):
-    if not isinstance(roman_string, str) or roman_string is None:
+    if roman_string is None or not isinstance(roman_string, str):
         return 0
