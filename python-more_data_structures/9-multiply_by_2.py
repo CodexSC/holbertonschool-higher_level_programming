@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """
-A function that multiplies 2 matrices by using the module NumPy
+Multiply all values in a dictionary by 2
 """
 
 
-def lazy_matrix_mul(m_a, m_b):
-    import numpy as np
-    return np.matmul(m_a, m_b)
+def multiply_by_2(a_dictionary):
+    new_dict = {}
+    for key in a_dictionary:
+        new_dict[key] = a_dictionary[key] * 2
+    return new_dict
