@@ -1,0 +1,14 @@
+>>> add_integer(1, 2)
+3
+>>> add_integer(100, -2)
+98
+>>> add_integer(2, "School")
+Traceback (most recent call last):
+    ...
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+>>> add_integer(100.3, 2)
+102.3
+>>> add_integer(2, "School")
+Traceback (most recent call last):
+    ...~
+
