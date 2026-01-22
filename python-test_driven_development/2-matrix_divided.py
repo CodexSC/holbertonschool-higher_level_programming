@@ -1,6 +1,3 @@
-Here's your code formatted according to PEP 8 / pycodestyle:
-python
-
 #!/usr/bin/python3
 """Module for matrix division."""
 
