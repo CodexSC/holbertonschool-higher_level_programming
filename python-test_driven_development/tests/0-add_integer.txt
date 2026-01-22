@@ -11,3 +11,19 @@ TypeError: b must be an integer
 102
 >>> add_integer(4, 10)
 14
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
+>>> add_integer(5)
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() missing 1 required positional argument: 'b'
+>>> add_integer()
+Traceback (most recent call last):
+    ...
+TypeError: add_integer() missing 2 required positional arguments: 'a' and 'b'
