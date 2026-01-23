@@ -1,17 +1,22 @@
 #!/usr/bin/python3
 """
-Function that prints a text with 2 new lines
-after each of these characters: ., ? and :.
+Prints text with two newlines after each '.', '?', or ':'
 """
 
 
 def text_indentation(text):
-    """Function that prints a text with 2 new lines
-    after each of these characters: ., ? and :.
     """
-    if type(text) is not str:
+    Prints text with two newlines after each '.', '?', or ':',
+    except after the last character of the string.
+    """
+    if not isinstance(text, str):
         raise TypeError("text must be a string")
-    text = text.replace(".", ".\n\n")
-    text = text.replace("?", "?\n\n")
-    text = text.replace(":", ":\n\n")
-    print(text, end="")
+
+    i = 0
+    while i < len(text):
+        print(text[i], end="")
+        if text[i] in ".?:":
+            # Check if not at the end to add extra newline
+            if i != len(text) - 1:
+                print("\n")
+        i += 1
