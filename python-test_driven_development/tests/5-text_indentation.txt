@@ -1,4 +1,3 @@
-
 >>> text_indentation("Holberton. School? How are you: John")
 Holberton.
 School?
@@ -16,4 +15,3 @@ Question?
 >>> text_indentation("Colon:")
 Colon:
 >>> text_indentation("")
-
