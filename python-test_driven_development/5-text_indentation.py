@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-"""
-Prints a text with 2 new lines after each of these characters: ., ? and :
-"""
-
+"""Module for text indentation."""
 
 def text_indentation(text):
-    """Prints a text with 2 new lines after each of these characters: ., ? and :"""
+    """Print text with two new lines after each '.', '?', and ':' characters."""
     if type(text) is not str:
         raise TypeError("text must be a string")
     text = text.replace(".", ".\n\n")
     text = text.replace("?", "?\n\n")
     text = text.replace(":", ":\n\n")
-    print(text, end="")
+    print(text.strip().replace("\n\n ", "\n\n"))
