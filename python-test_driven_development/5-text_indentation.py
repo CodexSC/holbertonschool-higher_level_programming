@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+
+"""
+Prints text with a newline after each '.', '?', or ':', without extra blank lines.
+"""
+
 def text_indentation(text):
     """
     Prints text with a newline after each '.', '?', or ':', without extra blank lines.
