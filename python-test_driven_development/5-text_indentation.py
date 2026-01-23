@@ -3,7 +3,10 @@
 
 
 def text_indentation(text):
-    """Print text with two new lines after each of these characters: . ? and :"""
+    """
+    Print text with two new lines after
+    each of these characters: . ? and :
+    """
     if type(text) is not str:
         raise TypeError("text must be a string")
     c = 0
