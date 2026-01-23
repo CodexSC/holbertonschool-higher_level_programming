@@ -8,18 +8,14 @@ def text_indentation(text):
         raise TypeError("text must be a string")
     i = 0
     n = len(text)
-    last_char = ''
     while i < n:
-        print(text[i], end="")
-        last_char = text[i]
-        if text[i] in ".?:":
+        c = text[i]
+        print(c, end="")
+        if c in ".?:":
             print()
-            last_char = '\n'
             i += 1
             # Skip all spaces after punctuation
             while i < n and text[i] == ' ':
                 i += 1
             continue
         i += 1
-    if last_char != '\n':
-        print()
