@@ -1,0 +1,19 @@
+>>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc:")
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+ Quonam modo?
+
+ Utrum igitur tibi litteram videor an totas paginas commovere?
+
+ Non autem hoc:
+
+>>> text_indentation("Simple sentence.")
+Simple sentence.
+
+>>> text_indentation("Question?")
+Question?
+
+>>> text_indentation("Colon:")
+Colon:
+
+>>> text_indentation("")
