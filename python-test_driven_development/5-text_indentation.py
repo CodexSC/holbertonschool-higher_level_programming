@@ -14,21 +14,16 @@ def text_indentation(text):
         # skip leading spaces
         while i < n and text[i] == " ":
             i += 1
-
         if i >= n:
             break
 
-        # print characters until punctuation
+        # print until punctuation
         while i < n and text[i] not in ".?:":
             print(text[i], end="")
             i += 1
 
-        # print the punctuation if it exists
+        # print punctuation
         if i < n and text[i] in ".?:":
             print(text[i], end="")
-            print()  # newline
+            print()  # just newline, no extra space
             i += 1
-
-        # after punctuation, if more text remains, print a space
-        if i < n:
-            print(" ", end="")
