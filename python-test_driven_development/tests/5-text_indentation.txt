@@ -1,25 +1,23 @@
+
 >>> text_indentation = __import__('5-text_indentation').text_indentation
 
 >>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc:")
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-<BLANKLINE>
-Quonam modo?
-<BLANKLINE>
-Utrum igitur tibi litteram videor an totas paginas commovere?
-<BLANKLINE>
-Non autem hoc:
-<BLANKLINE>
+
+ Quonam modo?
+
+ Utrum igitur tibi litteram videor an totas paginas commovere?
+
+ Non autem hoc:
 
 >>> text_indentation("Simple sentence.")
 Simple sentence.
-<BLANKLINE>
 
 >>> text_indentation("Question?")
 Question?
-<BLANKLINE>
 
 >>> text_indentation("Colon:")
 Colon:
-<BLANKLINE>
 
 >>> text_indentation("")
+
