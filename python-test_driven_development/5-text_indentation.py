@@ -8,20 +8,18 @@ def text_indentation(text):
         raise TypeError("text must be a string")
     i = 0
     n = len(text)
-    last_was_newline = False
+    buf = ""
     while i < n:
         c = text[i]
-        print(c, end="")
+        buf += c
         if c in ".?:":
-            print()
-            last_was_newline = True
+            print(buf.strip())
+            buf = ""
             i += 1
             # Skip all spaces after punctuation
             while i < n and text[i] == ' ':
                 i += 1
             continue
-        else:
-            last_was_newline = False
         i += 1
-    if not last_was_newline:
-        print()
+    if buf.strip():
+        print(buf.strip())
