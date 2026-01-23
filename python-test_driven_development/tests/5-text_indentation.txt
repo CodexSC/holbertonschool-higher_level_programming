@@ -1,17 +1,12 @@
 >>> text_indentation("Holberton. School? How are you: John")
 Holberton.
-
 School?
-
 How are you:
 John
 >>> text_indentation("Lorem ipsum dolor sit amet. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc:")
 Lorem ipsum dolor sit amet.
-
 Quonam modo?
-
 Utrum igitur tibi litteram videor an totas paginas commovere?
-
 Non autem hoc:
 >>> text_indentation("Simple sentence.")
 Simple sentence.
