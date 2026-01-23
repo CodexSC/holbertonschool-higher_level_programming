@@ -8,6 +8,10 @@ def text_indentation(text):
         raise TypeError("text must be a string")
     i = 0
     n = len(text)
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+    if text == "":
+        return
     buf = ""
     while i < n:
         c = text[i]
