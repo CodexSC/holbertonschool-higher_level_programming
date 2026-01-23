@@ -3,8 +3,7 @@ Holberton.
 
 School?
 
-How are you:
-John
+How are you: John
 >>> text_indentation("Lorem ipsum dolor sit amet. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc:")
 Lorem ipsum dolor sit amet.
 
@@ -19,4 +18,5 @@ Simple sentence.
 Question?
 >>> text_indentation("Colon:")
 Colon:
+
 >>> text_indentation("")
