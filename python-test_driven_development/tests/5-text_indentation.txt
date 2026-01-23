@@ -1,22 +1,101 @@
->>> text_indentation("Holberton. School? How are you: John")
-Holberton.
+============================
+Test for 5-text_indentation.py
+============================
 
-School?
+This module defines a function ``text_indentation(text)``.
 
-How are you: John
->>> text_indentation("Lorem ipsum dolor sit amet. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? Non autem hoc:")
-Lorem ipsum dolor sit amet.
+Importing the function:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
 
-Quonam modo?
+Basic usage
+===========
 
-Utrum igitur tibi litteram videor an totas paginas commovere?
+    >>> text_indentation("Hello world. How are you?")
+    Hello world.
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
 
-Non autem hoc:
->>> text_indentation("Simple sentence.")
-Simple sentence.
->>> text_indentation("Question?")
-Question?
->>> text_indentation("Colon:")
-Colon:
+Multiple punctuation
+====================
 
->>> text_indentation("")
+    >>> text_indentation("First line: second line. Third line?")
+    First line:
+    <BLANKLINE>
+    second line.
+    <BLANKLINE>
+    Third line?
+    <BLANKLINE>
+
+Leading and trailing spaces
+===========================
+
+    >>> text_indentation("  Space before.  Space after? ")
+    Space before.
+    <BLANKLINE>
+    Space after?
+    <BLANKLINE>
+
+Empty string
+============
+
+    >>> text_indentation("")
+
+TypeError if not string
+=======================
+
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Multiple lines, multiple punctuations
+=====================================
+
+    >>> text_indentation("Lorem ipsum. Quonam modo? Non autem hoc: Plus semper voluptatis?")
+    Lorem ipsum.
+    <BLANKLINE>
+    Quonam modo?
+    <BLANKLINE>
+    Non autem hoc:
+    <BLANKLINE>
+    Plus semper voluptatis?
+    <BLANKLINE>
+
+Mixed spacing and punctuation
+=============================
+
+    >>> text_indentation(" A. B? C: D")
+    A.
+    <BLANKLINE>
+    B?
+    <BLANKLINE>
+    C:
+    <BLANKLINE>
+    D
+
+Single word, no punctuation
+===========================
+
+    >>> text_indentation("Holberton School")
+    Holberton School
+
+Trailing punctuation only
+=========================
+
+    >>> text_indentation("End here:")
+    End here:
+    <BLANKLINE>
+
+No arguments
+============
+
+    >>> text_indentation()
+    Traceback (most recent call last):
+    ...
+... (2 lines left)
