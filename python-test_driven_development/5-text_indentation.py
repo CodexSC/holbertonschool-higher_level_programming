@@ -9,4 +9,8 @@ def text_indentation(text):
     text = text.replace("?", "?\n\n")
     text = text.replace(":", ":\n\n")
     text = text.strip().replace("\n\n ", "\n\n")
-    return text
+    lines = text.split("\n")
+    indented_text = ""
+    for line in lines:
+        indented_text += line.strip() + "\n"
+    return indented_text
