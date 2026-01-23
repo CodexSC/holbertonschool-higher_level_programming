@@ -3,8 +3,7 @@
 
 
 def text_indentation(text):
-    """Print text with two new lines after each '.'
-    '?', and ':' characters."""
+    """Print text with a new line after each '.', '?', and ':' character."""
     if type(text) is not str:
         raise TypeError("text must be a string")
 
@@ -16,7 +15,7 @@ def text_indentation(text):
         print(text[c], end="")
         if text[c] == "\n" or text[c] in ".?:":
             if text[c] in ".?:":
-                print("\n")
+                print()  # fixed: only one newline now
             c += 1
             while c < len(text) and text[c] == ' ':
                 c += 1
