@@ -1,29 +1,11 @@
 #!/usr/bin/python3
-"""Defines a text indentation function."""
+"""Print text with a new line after each '.', '?', and ':' character."""
 
 
 def text_indentation(text):
     """Print text with a new line after each '.', '?', and ':' character."""
-    if not isinstance(text, str):
+    if type(text) is not str:
         raise TypeError("text must be a string")
-
-    i = 0
-    n = len(text)
-
-    while i < n:
-        # skip leading spaces
-        while i < n and text[i] == " ":
-            i += 1
-        if i >= n:
-            break
-
-        # print until punctuation
-        while i < n and text[i] not in ".?:":
-            print(text[i], end="")
-            i += 1
-
-        # print punctuation
-        if i < n and text[i] in ".?:":
-            print(text[i], end="")
-            print()  # just newline, no extra space
-            i += 1
+    for char in ".?:":
+        text = text.replace(char, char + "\n\n")
+    print(text, end="")
