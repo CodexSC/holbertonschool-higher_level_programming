@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 """
 Defines a square by: (based on 0-square.py)
 Private instance attribute: size
