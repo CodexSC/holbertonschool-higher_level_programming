@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-
-
 """
 Defines a square by: (based on 0-square.py)
 Private instance attribute: size
@@ -10,23 +8,20 @@ Private instance attribute: size
 class Square:
     """Represent a square."""
 
-    def __init__(self, size):
-        """Initialize a new square.
+    def __init__(self, size=0):
+        """
+        Initialize a new square.
 
         Args:
             size (int): The size of the new square.
+
+        Raises:
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0
         """
-        self.__size = size
-
-    @property
-    def size(self):
-        """Get/set the current size of the square."""
-        return (self.__size)
-
-    @size.setter
-    def size(self, value):
-        if not isinstance(value, int):
+        if not isinstance(size, int):
             raise TypeError("size must be an integer")
-        elif value < 0:
+        if size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+        # Store size as a private attribute (name mangling with __)
+        self.__size = size
