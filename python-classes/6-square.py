@@ -1,38 +1,17 @@
 #!/usr/bin/python3
-"""
-Defines a square by: (based on 0-square.py)
-Private instance attribute: size
-"""
+"""Defines a Square."""
 
 
 class Square:
     """Represent a square."""
 
-    def __init__(self, size=0):
-        """
-        Initialize a new square.
-
-        Args:
-            size (int): The size of the new square.
-
-        Raises:
-            TypeError: If size is not an integer.
-            ValueError: If size is less than 0
-        """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        # Store size as a private attribute (name mangling with __)
-        self.__size = size
-
-    def area(self):
-        """Return the current area of the square."""
-        return self.__size * self.__size
+    def __init__(self, size=0, position=(0, 0)):
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
-        """Get/set the current size of the square."""
+        """Retrieve size."""
         return self.__size
 
     @size.setter
@@ -43,7 +22,12 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = value
 
- @position.setter
+    @property
+    def position(self):
+        """Retrieve position."""
+        return self.__position
+
+    @position.setter
     def position(self, value):
         if (not isinstance(value, tuple) or
                 len(value) != 2 or
@@ -72,4 +56,3 @@ class Square:
             for _ in range(self.__size):
                 print("#", end="")
             print()
-
