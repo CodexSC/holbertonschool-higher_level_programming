@@ -54,6 +54,8 @@ class Rectangle:
         """Returns a string representation of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ""
+        # use instance print_symbol if defined, else class attribute
+        symbol = str(getattr(self, "print_symbol", Rectangle.print_symbol))
         line = str(Rectangle.print_symbol) * self.__width
         return "\n".join([line] * self.__height)
 
