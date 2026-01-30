@@ -8,8 +8,6 @@ class Rectangle:
     number_of_instances = 0
     print_symbol = "#"
 
-
-
     def __init__(self, width=0, height=0):
         """Initializes a new Rectangle.
 
@@ -61,7 +59,7 @@ class Rectangle:
         """Returns a string representation of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        line = str(self.print_symbol) * self.__width
+        line = str(Rectangle.print_symbol) * self.__width
         return "\n".join(["#" * self.__width] * self.__height)
 
     def __repr__(self):
