@@ -16,7 +16,6 @@ class Rectangle:
 
     @property
     def width(self):
-        """Get/set the width of the rectangle."""
         return self.__width
 
     @width.setter
@@ -29,7 +28,6 @@ class Rectangle:
 
     @property
     def height(self):
-        """Get/set the height of the rectangle."""
         return self.__height
 
     @height.setter
@@ -41,30 +39,26 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Returns the area of the rectangle."""
         return self.__width * self.__height
 
     def perimeter(self):
-        """Returns the perimeter of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Returns a string representation of the rectangle."""
+        """String representation using print_symbol (instance or class)."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        # use instance print_symbol if defined, else class attribute
-        symbol = str(getattr(self, "print_symbol", Rectangle.print_symbol))
-        line = str(Rectangle.print_symbol) * self.__width
+        # Use instance print_symbol if it exists, else class attribute
+        symbol = str(self.__dict__.get("print_symbol", Rectangle.print_symbol))
+        line = symbol * self.__width
         return "\n".join([line] * self.__height)
 
     def __repr__(self):
-        """Returns a string representation of the rectangle."""
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        """Prints a message when the rectangle is deleted."""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
 
