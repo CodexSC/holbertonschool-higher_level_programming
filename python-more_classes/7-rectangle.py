@@ -9,12 +9,7 @@ class Rectangle:
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        """Initializes a new Rectangle.
-
-        Args:
-            width (int): The width of the new rectangle.
-            height (int): The height of the new rectangle.
-        """
+        """Initializes a new Rectangle."""
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
@@ -55,11 +50,12 @@ class Rectangle:
             return 0
         return 2 * (self.__width + self.__height)
 
-   def __str__(self):
-    if self.__width == 0 or self.__height == 0:
-        return ""
-    line = str(Rectangle.print_symbol) * self.__width
-    return "\n".join([line] * self.__height)
+    def __str__(self):
+        """Returns a string representation of the rectangle."""
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        line = str(Rectangle.print_symbol) * self.__width
+        return "\n".join([line] * self.__height)
 
     def __repr__(self):
         """Returns a string representation of the rectangle."""
@@ -79,3 +75,4 @@ class Rectangle:
         if rect_1.area() >= rect_2.area():
             return rect_1
         return rect_2
+
