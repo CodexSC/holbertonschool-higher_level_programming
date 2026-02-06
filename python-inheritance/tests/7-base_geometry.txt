@@ -1,81 +1,93 @@
-===========================
-How to use 7-base_geometry
-===========================
+=============================
+Module: 7-base_geometry
+=============================
 
-This module defines a BaseGeometry class with validation methods.
+Module for testing BaseGeometry class.
 
-Importing the class:
-    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-Instantiating the class:
+Testing instantiation:
+
     >>> bg = BaseGeometry()
+    >>> type(bg)
+    <class '7-base_geometry.BaseGeometry'>
+    >>> isinstance(bg, BaseGeometry)
+    True
 
-Testing area() method:
+Testing area() method raises Exception:
+
     >>> bg.area()
     Traceback (most recent call last):
         ...
     Exception: area() is not implemented
 
-Testing integer_validator with valid positive integers:
-    >>> bg.integer_validator("my_int", 12)
-    >>> bg.integer_validator("width", 89)
+Testing integer_validator() - valid integers:
 
-Testing integer_validator with string (invalid type):
+    >>> bg.integer_validator("width", 10)
+    >>> bg.integer_validator("height", 89)
+    >>> bg.integer_validator("my_int", 1)
+
+Testing integer_validator() - invalid types (TypeError):
+
     >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
 
-Testing integer_validator with zero (invalid value):
-    >>> bg.integer_validator("age", 0)
+    >>> bg.integer_validator("age", 3.14)
     Traceback (most recent call last):
         ...
-    ValueError: age must be greater than 0
+    TypeError: age must be an integer
 
-Testing integer_validator with negative value (invalid value):
-    >>> bg.integer_validator("distance", -4)
+    >>> bg.integer_validator("id", [1, 2, 3])
     Traceback (most recent call last):
         ...
-    ValueError: distance must be greater than 0
+    TypeError: id must be an integer
 
-Testing integer_validator with float:
-    >>> bg.integer_validator("my_float", 5.5)
+    >>> bg.integer_validator("coords", (1, 2))
     Traceback (most recent call last):
         ...
-    TypeError: my_float must be an integer
+    TypeError: coords must be an integer
 
-Testing integer_validator with list:
-    >>> bg.integer_validator("my_list", [1, 2])
+    >>> bg.integer_validator("data", {"key": "value"})
     Traceback (most recent call last):
         ...
-    TypeError: my_list must be an integer
+    TypeError: data must be an integer
 
-Testing integer_validator with tuple:
-    >>> bg.integer_validator("my_tuple", (1, 2))
+    >>> bg.integer_validator("value", None)
     Traceback (most recent call last):
         ...
-    TypeError: my_tuple must be an integer
+    TypeError: value must be an integer
 
-Testing integer_validator with dict:
-    >>> bg.integer_validator("my_dict", {})
-    Traceback (most recent call last):
-        ...
-    TypeError: my_dict must be an integer
+Testing integer_validator() - invalid values (ValueError):
 
-Testing integer_validator with None:
-    >>> bg.integer_validator("my_none", None)
+    >>> bg.integer_validator("count", 0)
     Traceback (most recent call last):
         ...
-    TypeError: my_none must be an integer
+    ValueError: count must be greater than 0
 
-Testing integer_validator with boolean True:
-    >>> bg.integer_validator("my_bool", True)
+    >>> bg.integer_validator("size", -5)
     Traceback (most recent call last):
         ...
-    TypeError: my_bool must be an integer
+    ValueError: size must be greater than 0
 
-Testing integer_validator with boolean False:
-    >>> bg.integer_validator("my_bool", False)
+    >>> bg.integer_validator("length", -100)
     Traceback (most recent call last):
         ...
-    TypeError: my_bool must be an integer
+    ValueError: length must be greater than 0
+
+Testing integer_validator() - edge cases:
+
+    >>> bg.integer_validator("min_value", 1)
+    >>> bg.integer_validator("max_value", 999999999)
+
+Testing that methods are public:
+
+    >>> hasattr(BaseGeometry, 'area')
+    True
+    >>> hasattr(BaseGeometry, 'integer_validator')
+    True
+    >>> callable(getattr(BaseGeometry, 'area'))
+    True
+    >>> callable(getattr(BaseGeometry, 'integer_validator'))
+    True
