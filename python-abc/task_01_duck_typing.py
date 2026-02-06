@@ -56,4 +56,3 @@ rectangle = Rectangle(4, 6)
 
 shape_info(circle)
 shape_info(rectangle)
-
