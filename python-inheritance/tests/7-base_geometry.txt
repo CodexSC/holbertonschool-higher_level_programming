@@ -16,75 +16,66 @@ Testing area() method:
         ...
     Exception: area() is not implemented
 
-Testing integer_validator with valid input:
+Testing integer_validator with valid positive integers:
     >>> bg.integer_validator("my_int", 12)
+    >>> bg.integer_validator("width", 89)
 
-Testing integer_validator with invalid type (string):
-    >>> bg.integer_validator("name", "5")
+Testing integer_validator with string (invalid type):
+    >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
 
-Testing integer_validator with invalid type (float):
+Testing integer_validator with zero (invalid value):
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: age must be greater than 0
+
+Testing integer_validator with negative value (invalid value):
+    >>> bg.integer_validator("distance", -4)
+    Traceback (most recent call last):
+        ...
+    ValueError: distance must be greater than 0
+
+Testing integer_validator with float:
     >>> bg.integer_validator("my_float", 5.5)
     Traceback (most recent call last):
         ...
     TypeError: my_float must be an integer
 
-Testing integer_validator with invalid type (list):
+Testing integer_validator with list:
     >>> bg.integer_validator("my_list", [1, 2])
     Traceback (most recent call last):
         ...
     TypeError: my_list must be an integer
 
-Testing integer_validator with invalid type (tuple):
+Testing integer_validator with tuple:
     >>> bg.integer_validator("my_tuple", (1, 2))
     Traceback (most recent call last):
         ...
     TypeError: my_tuple must be an integer
 
-Testing integer_validator with invalid type (dict):
+Testing integer_validator with dict:
     >>> bg.integer_validator("my_dict", {})
     Traceback (most recent call last):
         ...
     TypeError: my_dict must be an integer
 
-Testing integer_validator with invalid type (None):
+Testing integer_validator with None:
     >>> bg.integer_validator("my_none", None)
     Traceback (most recent call last):
         ...
     TypeError: my_none must be an integer
 
-Testing integer_validator with value <= 0:
-    >>> bg.integer_validator("my_int", 0)
-    Traceback (most recent call last):
-        ...
-    ValueError: my_int must be greater than 0
-
-Testing integer_validator with negative value:
-    >>> bg.integer_validator("my_int", -5)
-    Traceback (most recent call last):
-        ...
-    ValueError: my_int must be greater than 0
-
-Testing integer_validator with large positive value:
-    >>> bg.integer_validator("large_number", 1000000)
-
-Testing integer_validator with value 1:
-    >>> bg.integer_validator("one", 1)
-
-Testing integer_validator with boolean (edge case - bool is subclass of int):
+Testing integer_validator with boolean True:
     >>> bg.integer_validator("my_bool", True)
     Traceback (most recent call last):
         ...
     TypeError: my_bool must be an integer
 
-Testing integer_validator with boolean (edge case - bool is subclass of int):
+Testing integer_validator with boolean False:
     >>> bg.integer_validator("my_bool", False)
     Traceback (most recent call last):
         ...
     TypeError: my_bool must be an integer
-
-Testing integer_validator with boolean (edge case - bool is subclass of int):
-    >>> bg.integer_validator("my_bool", True)
-
