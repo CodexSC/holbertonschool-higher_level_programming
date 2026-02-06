@@ -18,38 +18,3 @@ class Rectangle(BaseGeometry):
         self.integer_validator("height", height)
         self.__width = width
         self.__height = height
-
-    @property
-    def width(self):
-        """Get the width of the rectangle."""
-        return self.__width
-
-    @width.setter
-    def width(self, value):
-        """Set the width of the rectangle."""
-        self.integer_validator("width", value)
-        self.__width = value
-
-    @property
-    def height(self):
-        """Get the height of the rectangle."""
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        """Set the height of the rectangle."""
-        self.integer_validator("height", value)
-        self.__height = value
-
-    def area(self):
-        """Return the area of the rectangle."""
-        return self.__width * self.__height
-
-    def __str__(self):
-        """Return the string representation of the rectangle."""
-        return "[Rectangle] {}/{}".format(self.__width, self.__height)
-
-    def __repr__(self):
-        """Return the official string representation of the rectangle."""
-        return "Rectangle({}, {})".format(self.__width, self.__height)
-
