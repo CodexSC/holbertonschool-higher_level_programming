@@ -2,21 +2,19 @@ from abc import ABC, abstractmethod
 import math
 
 
-# 1. Define the abstract base class Shape
 class Shape(ABC):
 
     @abstractmethod
     def area(self):
-        """Calculate the area of the shape"""
+        """Calculate the area of the shape."""
         pass
 
     @abstractmethod
     def perimeter(self):
-        """Calculate the perimeter of the shape"""
+        """Calculate the perimeter of the shape."""
         pass
 
 
-# 2. Concrete class: Circle
 class Circle(Shape):
 
     def __init__(self, radius):
@@ -29,7 +27,6 @@ class Circle(Shape):
         return 2 * math.pi * self.radius
 
 
-# 3. Concrete class: Rectangle
 class Rectangle(Shape):
 
     def __init__(self, width, height):
@@ -43,16 +40,16 @@ class Rectangle(Shape):
         return 2 * (self.width + self.height)
 
 
-# 4. Duck-typing function
 def shape_info(shape):
+    """Print the area and perimeter of a shape (duck-typed)."""
     print(f"Area: {shape.area():.2f}")
     print(f"Perimeter: {shape.perimeter():.2f}")
     print("-" * 30)
 
 
-# 5. Testing
-circle = Circle(5)
-rectangle = Rectangle(4, 6)
+if __name__ == "__main__":
+    circle = Circle(5)
+    rectangle = Rectangle(4, 6)
 
-shape_info(circle)
-shape_info(rectangle)
+    shape_info(circle)
+    shape_info(rectangle)
