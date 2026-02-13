@@ -22,14 +22,5 @@ class Student:
         return self.__dict__
 
     def reload_from_json(self, json):
-        """Replace all attributes of the Student instance from a dictionary.
-
-        Args:
-            json (dict): The dictionary to reload attributes from.
-        """
-        for key, value in json.items():
-            setattr(self, key, value)
-
-    def __str__(self):
-        """Return the print representation of a Student instance."""
-        return f"[Student] {self.first_name} {self.last_name}"
+        """Replace all attributes of the Student instance."""
+        self.__dict__ = json
