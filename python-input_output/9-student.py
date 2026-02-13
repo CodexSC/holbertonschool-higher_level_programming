@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A class Student that defines a student."""
+"""Define a class Student."""
 
 
 class Student:
@@ -15,3 +15,14 @@ class Student:
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
+
+    @classmethod
+    def update(cls, instance, key, value):
+        """Update the attribute of a student instance.
+        Args:
+            instance (Student): The student instance to update.
+            key (str): The key of the attribute to update.
+            value (str): The new value of the attribute.
+        """
+        if key in instance.__dict__:
+            instance.__dict__[key] = value
