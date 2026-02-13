@@ -1,25 +1,33 @@
 #!/usr/bin/python3
-import pickle
+"""Module for saving and loading objects using JSON files."""
+import json
 
 
 def save_to_json_file(my_obj, filename):
-    with open(filename, "wb") as f:
-        pickle.dump(my_obj, f)
+    """Write an object to a text file using JSON representation.
 
-    return
+    Args:
+        my_obj: The object to save.
+        filename (str): The name of the file to write to.
+    """
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(my_obj, f)
 
 
 def load_from_json_file(filename):
-    with open(filename, "rb") as f:
-        return pickle.load(f)
+    """Create an object from a JSON file.
 
-    return
+    Args:
+        filename (str): The name of the file to read from.
+    """
+    with open(filename, "r", encoding="utf-8") as f:
+        return json.load(f)
+
 
 if __name__ == "__main__":
     my_list = [1, 2, 3]
     save_to_json_file(my_list, "my_list.json")
     print(load_from_json_file("my_list.json"))
-
     my_dict = {
         "name": "John",
         "age": 30,
@@ -27,7 +35,3 @@ if __name__ == "__main__":
     }
     save_to_json_file(my_dict, "my_dict.json")
     print(load_from_json_file("my_dict.json"))
-
-    my_list = [1, 2, 3]
-    save_to_json_file(my_list, "my_list.json")
-    print(load_from_json_file("my_list.json"))
