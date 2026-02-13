@@ -1,14 +1,27 @@
 #!/usr/bin/python3
-"""Function that writes an object to a text file using JSON representation."""
+"""Module for basic JSON serialization and deserialization."""
 import json
 
 
-def save_to_json_file(my_obj, filename):
-    """Writes an object to a text file using JSON representation.
+def serialize_and_save_to_file(data, filename):
+    """Serialize and save a Python dictionary to a JSON file.
 
     Args:
-        my_obj: The object to save.
-        filename (str): The name of the file to write to.
+        data (dict): The Python dictionary to serialize.
+        filename (str): The filename of the output JSON file.
     """
     with open(filename, "w", encoding="utf-8") as f:
-        json.dump(my_obj, f)
+        json.dump(data, f)
+
+
+def load_and_deserialize(filename):
+    """Load and deserialize a JSON file to a Python dictionary.
+
+    Args:
+        filename (str): The filename of the input JSON file.
+
+    Returns:
+        dict: The deserialized Python dictionary.
+    """
+    with open(filename, "r", encoding="utf-8") as f:
+        return json.load(f)
