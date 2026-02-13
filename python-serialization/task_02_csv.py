@@ -1,14 +1,24 @@
 #!/usr/bin/python3
-"""Script that adds command line arguments to a Python list
-saved in a JSON file."""
-import sys
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+"""Module for converting CSV data to JSON format."""
+import csv
+import json
 
-filename = "add_item.json"
-try:
-    my_list = load_from_json_file(filename)
-except FileNotFoundError:
-    my_list = []
-my_list.extend(sys.argv[1:])
-save_to_json_file(my_list, filename)
+
+def convert_csv_to_json(csv_filename):
+    """Convert a CSV file to JSON format and write it to data.json.
+
+    Args:
+        csv_filename (str): The name of the CSV file to convert.
+
+    Returns:
+        bool: True if conversion was successful, False otherwise.
+    """
+    try:
+        with open(csv_filename, encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            data = list(reader)
+        with open("data.json", "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4)
+        return True
+    except FileNotFoundError:
+        return False
