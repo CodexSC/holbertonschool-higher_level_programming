@@ -14,14 +14,15 @@ def fetch_and_print_posts():
         for post in data:
             print("\t- {}".format(post.get("title")))
 
+
 def fetch_and_save_posts():
     response = requests.get('https://jsonplaceholder.typicode.com/posts')
     if response.status_code == 200:
         data = response.json()
         posts = []
         for post in data:
-            post.data ={
-                    'id' : post["id"],
+            post.data = {
+                    'id': post["id"],
                     'title': post["title"],
                     'body': post["body"],
                     }
@@ -33,5 +34,7 @@ def fetch_and_save_posts():
             writer.writerows(posts)
 
 # Call the functions
+
+
 fetch_and_print_posts()
 fetch_and_save_posts()
