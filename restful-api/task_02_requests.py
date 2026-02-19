@@ -32,9 +32,3 @@ def fetch_and_save_posts():
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(posts)
-
-# Call the functions
-
-
-fetch_and_print_posts()
-fetch_and_save_posts()
