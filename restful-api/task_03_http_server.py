@@ -1,6 +1,4 @@
 """
-task_03_http_server.py
-
 A simple RESTful-like API using Python's built-in http.server module.
 
 Features:
@@ -11,6 +9,7 @@ Features:
 
 Usage:
     python task_03_http_server.py
+
 Then visit in a browser or use curl:
     http://localhost:8000/
     http://localhost:8000/data
@@ -20,6 +19,7 @@ Then visit in a browser or use curl:
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
+
 
 class SimpleAPIHandler(BaseHTTPRequestHandler):
     """
@@ -37,9 +37,9 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
             status_code (int): HTTP status code (default 200 OK).
             content_type (str): Content-Type of the response (default "text/plain").
         """
-        self.send_response(status_code)          # Send HTTP status code
-        self.send_header("Content-type", content_type)  # Set content type
-        self.end_headers()                       # End headers
+        self.send_response(status_code)
+        self.send_header("Content-type", content_type)
+        self.end_headers()
 
     def do_GET(self):
         """
@@ -60,7 +60,11 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
         elif self.path == "/data":
             # JSON data endpoint
             self._set_headers(content_type="application/json")
-            data = {"name": "John", "age": 30, "city": "New York"}
+            data = {
+                "name": "John",
+                "age": 30,
+                "city": "New York"
+            }
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
         elif self.path == "/status":
@@ -72,7 +76,10 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
         elif self.path == "/info":
             # API info endpoint
             self._set_headers(content_type="application/json")
-            info = {"version": "1.0", "description": "A simple API built with http.server"}
+            info = {
+                "version": "1.0",
+                "description": "A simple API built with http.server"
+            }
             self.wfile.write(json.dumps(info).encode("utf-8"))
 
         else:
@@ -80,6 +87,7 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
             self._set_headers(status_code=404, content_type="application/json")
             error = {"error": "Endpoint not found"}
             self.wfile.write(json.dumps(error).encode("utf-8"))
+
 
 def run(server_class=HTTPServer, handler_class=SimpleAPIHandler, port=8000):
     """
@@ -90,10 +98,11 @@ def run(server_class=HTTPServer, handler_class=SimpleAPIHandler, port=8000):
         handler_class: Request handler class (default SimpleAPIHandler).
         port (int): Port number for the server to listen on (default 8000).
     """
-    server_address = ("", port)  # Empty string means listen on all interfaces
+    server_address = ("", port)
     httpd = server_class(server_address, handler_class)
     print(f"Starting simple API server on port {port}...")
-    httpd.serve_forever()  # Run the server indefinitely
+    httpd.serve_forever()
+
 
 if __name__ == "__main__":
     run()
