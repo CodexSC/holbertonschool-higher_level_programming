@@ -41,6 +41,7 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
         self.send_header("Content-type", content_type)
         self.end_headers()
 
+
     def do_GET(self):
         """
         Handle GET requests.
@@ -78,7 +79,9 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
             self._set_headers(content_type="application/json")
             info = {
                 "version": "1.0",
-                "description": "A simple API built with http.server"
+                "description": (
+                    "A simple API built with http.server"
+                )
             }
             self.wfile.write(json.dumps(info).encode("utf-8"))
 
