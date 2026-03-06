@@ -22,6 +22,7 @@ if __name__ == "__main__":
     """
     cur.execute(query, (state_name,))
     cities = [row[0] for row in cur.fetchall()]
-    print(", ".join(cities))
+    if cities:
+        print(", ".join(cities))
     cur.close()
     db.close()
