@@ -19,6 +19,6 @@ if __name__ == "__main__":
         ORDER BY cities.id ASC
     """)
     for row in cur.fetchall():
-        print(row)
+        print("{}: {}, {}".format(row[0], row[1], row[2]))
     cur.close()
     db.close()

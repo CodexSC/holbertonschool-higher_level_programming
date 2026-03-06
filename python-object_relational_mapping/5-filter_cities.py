@@ -24,5 +24,7 @@ if __name__ == "__main__":
     cities = [row[0] for row in cur.fetchall()]
     if cities:
         print(", ".join(cities))
+    else:
+        print("")
     cur.close()
     db.close()
