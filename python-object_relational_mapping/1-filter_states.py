@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Lists all states with a name starting with N from the database hbtn_0e_0_usa"""
+"""Displays all values in states where name matches argument"""
 import MySQLdb
 import sys
 
@@ -12,8 +12,11 @@ if __name__ == "__main__":
         db=sys.argv[3]
     )
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
-        for row in cur.fetchall():
-            print("{}: {}".format(row[0], row[1]))
+    state_name = sys.argv[4]
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    cur.execute(query, (state_name,))
+    for row in cur.fetchall():
+        print("{}: {}".format(row[0], row[1]))
     cur.close()
     db.close()
+    
