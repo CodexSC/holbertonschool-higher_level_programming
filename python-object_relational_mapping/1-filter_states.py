@@ -19,4 +19,3 @@ if __name__ == "__main__":
         print("{}: {}".format(row[0], row[1]))
     cur.close()
     db.close()
-    
