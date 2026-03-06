@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Displays all values in the states table where name matches the argument"""
+"""Displays all values in the states table
+where name matches the argument"""
 import MySQLdb
 import sys
 
@@ -16,6 +17,7 @@ if __name__ == "__main__":
     query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
     cur.execute(query, (state_name,))
     for row in cur.fetchall():
-        print("{}: {}".format(row[0], row[1]))
+        print(row)
     cur.close()
     db.close()
+    
