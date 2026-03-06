@@ -1,21 +1,28 @@
 #!/usr/bin/python3
-"""Displays all values in states where name matches argument"""
 import MySQLdb
 import sys
 
+
 if __name__ == "__main__":
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3]
+        user=username,
+        passwd=password,
+        db=database
     )
-    cur = db.cursor()
-    state_name = sys.argv[4]
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cur.execute(query, (state_name,))
-    for row in cur.fetchall():
-        print("{}: {}".format(row[0], row[1]))
-    cur.close()
+
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM states ORDER BY states.id ASC")
+
+    states = cursor.fetchall()
+
+    for state in states:
+        print(state)
+
+    cursor.close()
     db.close()
